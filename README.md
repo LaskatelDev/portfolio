@@ -1,6 +1,6 @@
 # laskatel — Portfolio
 
-Python developer. Working with Telegram APIs, AI integrations, automation, and web backends.
+Fullstack developer. Working with Telegram APIs, AI integrations, automation, API's and web backends.
 
 ---
 
