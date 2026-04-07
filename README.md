@@ -139,7 +139,7 @@ mime.add_header('Content-Disposition', 'attachment',
 
 ---
 
-### 4. Captcha Solver (bebe.py)
+### 4. Captcha Solver
 
 A desktop tool that solves captchas automatically using a vision AI model. The user selects screen regions by pointing the mouse - captcha area, input field, reload button, skip button - and the solver runs in a loop.
 
