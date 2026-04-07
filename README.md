@@ -18,6 +18,10 @@ I specialize in end-to-end process automation, deploying production-ready backen
 
 I specialize in developing, fine-tuning, and deploying AI models - from LLMs and vision systems to custom ML pipelines. I turn research-grade models into production-ready solutions.
 
+
+
+P.S
+You can request additional screenshots or code from me on Telegram, which is listed at the end of the portfolio.
 ---
 
 ## Projects
