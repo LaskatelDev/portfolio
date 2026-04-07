@@ -1,4 +1,4 @@
-# laskatel — Portfolio
+# laskatel - Portfolio
 
 Fullstack developer. Working with Telegram APIs, AI integrations, automation, API's and web backends.
 
@@ -6,20 +6,20 @@ Fullstack developer. Working with Telegram APIs, AI integrations, automation, AP
 
 ## Projects
 
-### 1. Studio Myata — AI Photo Generation Platform
+### 1. Studio Myata - AI Photo Generation Platform
 
 A full-stack web service built for a photo studio. Users can generate images via AI, browse a gallery, and purchase generation credits.
 
 **Stack:** Node.js, Express, Vanilla JS, HTML/CSS
 
 **Integrations:**
-- **Replicate API** — image generation via Stable Diffusion and other models
-- **UnitPay** — payment processing with webhook handling and order confirmation
+- **Replicate API** - image generation via Stable Diffusion and other models
+- **UnitPay** - payment processing with webhook handling and order confirmation
 
 **Key parts of the backend:**
 
 ```js
-// unitpay.js — webhook from payment system
+// unitpay.js - webhook from payment system
 app.post('/unitpay/handler', (req, res) => {
   const { method, params } = req.body;
   if (method === 'pay' && verifySignature(params)) {
@@ -31,7 +31,7 @@ app.post('/unitpay/handler', (req, res) => {
 ```
 
 ```js
-// replicate.js — generation request
+// replicate.js - generation request
 async function generateImage(prompt, model) {
   const output = await replicate.run(model, { input: { prompt } });
   return output[0]; // URL of the generated image
@@ -40,7 +40,7 @@ async function generateImage(prompt, model) {
 
 ---
 
-### 2. Telegram Mass Sender — Multi-Account Automation Tool
+### 2. Telegram Mass Sender - Multi-Account Automation Tool
 
 A desktop application (CustomTkinter GUI) for managing multiple Telegram accounts and running parallel campaigns. Built as a full toolkit rather than a single script.
 
@@ -48,23 +48,23 @@ A desktop application (CustomTkinter GUI) for managing multiple Telegram account
 
 **What's inside:**
 
-- **Account manager** — add `.session` files, set limits, delays, and schedules per account
-- **Mailing** — sends messages across a list of chats with randomized delays and repeat cycles
-- **Infinite mailing (24/7 mode)** — each account distributes N messages per 24h, cooldown calculated automatically as `86400 / daily_limit ± 20%`
-- **Group entry monitor** — detects new members joining specified groups, sends them a DM after a random delay
-- **Keyword monitor** — reads all new messages in groups, matches against trigger rules, sends responses
-- **Username watcher** — finds `@mentions` in group messages and writes to those users in DM
-- **Parser** — extracts members by participants list or by message authors in a date range
-- **Inviting** — adds parsed users to a target group, with per-account limits and rotation
-- **Auto-reply** — uses GPT to answer incoming DMs naturally, one reply per user per session
-- **Proxy support** — SOCKS5, HTTP, MTProto; distributed round-robin across accounts
-- **Spam-ban detection** — catches `PeerFloodError`, checks `@SpamBot` for the unban date, logs it
-- **Shift rotation** — accounts work on configurable day cycles (e.g. work 1 day, rest 3)
-- **AI text variation** — rewrites outgoing messages via OnlySQ GPT before sending
-- **Database** — JSON-based deduplication so the same user never gets messaged twice
+- **Account manager** - add `.session` files, set limits, delays, and schedules per account
+- **Mailing** - sends messages across a list of chats with randomized delays and repeat cycles
+- **Infinite mailing (24/7 mode)** - each account distributes N messages per 24h, cooldown calculated automatically as `86400 / daily_limit ± 20%`
+- **Group entry monitor** - detects new members joining specified groups, sends them a DM after a random delay
+- **Keyword monitor** - reads all new messages in groups, matches against trigger rules, sends responses
+- **Username watcher** - finds `@mentions` in group messages and writes to those users in DM
+- **Parser** - extracts members by participants list or by message authors in a date range
+- **Inviting** - adds parsed users to a target group, with per-account limits and rotation
+- **Auto-reply** - uses GPT to answer incoming DMs naturally, one reply per user per session
+- **Proxy support** - SOCKS5, HTTP, MTProto; distributed round-robin across accounts
+- **Spam-ban detection** - catches `PeerFloodError`, checks `@SpamBot` for the unban date, logs it
+- **Shift rotation** - accounts work on configurable day cycles (e.g. work 1 day, rest 3)
+- **AI text variation** - rewrites outgoing messages via OnlySQ GPT before sending
+- **Database** - JSON-based deduplication so the same user never gets messaged twice
 
 ```python
-# Proxy parsing — supports raw ip:port, socks5://, and MTProto t.me/proxy links
+# Proxy parsing - supports raw ip:port, socks5://, and MTProto t.me/proxy links
 def parse_proxy(raw: str):
     if "t.me/proxy" in raw:
         parsed = urlparse(raw)
@@ -80,14 +80,14 @@ def parse_proxy(raw: str):
 ```
 
 ```python
-# Infinite mailing — even distribution across 24h with jitter
+# Infinite mailing - even distribution across 24h with jitter
 base_cooldown = 86400.0 / max(acc.infinite_daily_limit, 1)
 jitter = random.uniform(-0.20, 0.20)
 acc._inf_cooldown = round(base_cooldown * (1 + jitter), 2)
 ```
 
 ```python
-# SpamBot check — reads the unban date from @SpamBot reply
+# SpamBot check - reads the unban date from @SpamBot reply
 await client.send_message("SpamBot", "/start")
 await asyncio.sleep(5)
 msgs = await client.get_messages("SpamBot", limit=3)
@@ -95,7 +95,7 @@ msgs = await client.get_messages("SpamBot", limit=3)
 ```
 
 ```python
-# AI auto-reply — generates a short human-like response via GPT
+# AI auto-reply - generates a short human-like response via GPT
 def generate_auto_reply_sync(self, account, user_message):
     client = OpenAI(api_key=self.ai_api_key, base_url="https://api.onlysq.ru/ai/openai")
     prompt = f"{account.auto_reply_prompt}\n\nMessage: {user_message}\n\nShort reply:"
@@ -118,7 +118,7 @@ A GUI tool for sending bulk emails via Yandex SMTP. Loads sender accounts from a
 **Key features:**
 - Loads `login:password` accounts and recipient lists from `.txt` files
 - Randomly picks a sender account for each recipient
-- Multiple message templates separated by `###` — one is selected at random per send
+- Multiple message templates separated by `###` - one is selected at random per send
 - File attachments with Cyrillic filename support via `email.header.Header`
 - Failed recipients saved to a timestamped file; retry button re-runs only those
 - Settings (subject, body, delays, attachments) saved to JSON per OS convention (`AppData`, `~/.config`, etc.)
@@ -141,17 +141,17 @@ mime.add_header('Content-Disposition', 'attachment',
 
 ### 4. Captcha Solver (bebe.py)
 
-A desktop tool that solves captchas automatically using a vision AI model. The user selects screen regions by pointing the mouse — captcha area, input field, reload button, skip button — and the solver runs in a loop.
+A desktop tool that solves captchas automatically using a vision AI model. The user selects screen regions by pointing the mouse - captcha area, input field, reload button, skip button - and the solver runs in a loop.
 
 **Stack:** Python, pyautogui, pynput, PIL, tkinter, OpenAI-compatible vision API (OnlySQ)
 
 **How it works:**
 1. Takes a screenshot of the selected region
-2. Computes a pixel hash — if the image hasn't changed since last check, skips the API call
+2. Computes a pixel hash - if the image hasn't changed since last check, skips the API call
 3. Sends the image to `c4ai-aya-vision-32b` as base64 with a system prompt that handles text captchas and math expressions
 4. Types the answer character by character with random delays (`0.5–0.6s`)
 5. Detects reload button by pixel color analysis (blue pixel count threshold)
-6. Tracks duplicate answers, skip count, and reload attempts — auto-restarts after thresholds
+6. Tracks duplicate answers, skip count, and reload attempts - auto-restarts after thresholds
 
 ```python
 # Image hashing to skip unchanged captchas
@@ -178,19 +178,19 @@ def type_answer(answer):
 
 ---
 
-### 5. TGMansion — Telegram AI Bot
+### 5. TGMansion - Telegram AI Bot
 
 A Telegram bot that gives users access to GPT chat and image generation. Requires channel subscription to use. Includes admin broadcast functionality.
 
 **Stack:** Python, aiogram 3, aiohttp, SQLite, OnlySQ API
 
 **Features:**
-- **Chat** — multi-model GPT chat (GPT-5.2, Qwen3 Max) with per-user message history, cooldown, and custom system role
-- **Image generation** — Flux 2 Dev via OnlySQ Imagen API; optional prompt enhancement before generation
-- **Prompt enhancement** — sends the user's prompt to GPT with a specialized system instruction, returns an enriched version
-- **Subscription gate** — checks channel membership via `get_chat_member` before any action
-- **Broadcast** — admin-only command to send a message/photo/document to all registered users
-- **SQLite** — stores user IDs, usernames, join date; used for broadcast and stats
+- **Chat** - multi-model GPT chat (GPT-5.2, Qwen3 Max) with per-user message history, cooldown, and custom system role
+- **Image generation** - Flux 2 Dev via OnlySQ Imagen API; optional prompt enhancement before generation
+- **Prompt enhancement** - sends the user's prompt to GPT with a specialized system instruction, returns an enriched version
+- **Subscription gate** - checks channel membership via `get_chat_member` before any action
+- **Broadcast** - admin-only command to send a message/photo/document to all registered users
+- **SQLite** - stores user IDs, usernames, join date; used for broadcast and stats
 
 ```python
 # Subscription check before any handler
