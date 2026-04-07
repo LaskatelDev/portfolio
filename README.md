@@ -442,6 +442,21 @@ podchistitNeOpubl();
 setInterval(podchistitNeOpubl, 24 * 60 * 60 * 1000);
 ```
 
+## Production Practices Applied Across Projects
+
+| Practice | Where |
+|----------|-------|
+| Idempotent webhook handling | UnitPay handler (checks existing payment before processing) |
+| Database transactions | Payment credit + status update in BEGIN/COMMIT |
+| IP whitelisting | UnitPay webhook (isUnitpayIp) |
+| Rate limiting per IP | Registration limit (configurable from admin panel) |
+| Graceful degradation | Cloudinary → local filesystem fallback |
+| Maintenance mode + IP whitelist | techRezhimMiddleware |
+| Configuration without redeploy | Admin panel editable settings table |
+| Auto-cleanup (scheduled) | Unpublished generations purge every 24h |
+| Caching (external API) | CBR exchange rate, 6h TTL |
+
+
 ---
 
 # 2. Telegram Mass Sender - Multi-Account Automation Tool
