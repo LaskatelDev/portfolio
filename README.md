@@ -225,4 +225,4 @@ for user in get_all_users():
 
 ## Contact
 
-Telegram: [@laskatel](https://t.me/laskatell)
+Telegram: [@laskatell](https://t.me/laskatell)
