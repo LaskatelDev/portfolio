@@ -2,6 +2,14 @@
 
 Fullstack developer. Working with Telegram APIs, AI integrations, automation, API's and web backends.
 
+# About Me
+
+API integration specialist
+I excel at quickly navigating technical documentation and implementing third-party services. Ready to connect any API - from payment gateways to AI models - with clean, maintainable code
+
+Automation & Backend Deployment Specialist
+I specialize in end-to-end process automation, deploying production-ready backends on any stack, and building client-facing automation systems. From internal workflows to scalable cloud services and automated client communications, I deliver reliable, well-documented solutions that run smoothly out of the box
+
 ---
 
 ## Projects
