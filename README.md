@@ -10,6 +10,9 @@ I excel at quickly navigating technical documentation and implementing third-par
 Automation & Backend Deployment Specialist
 I specialize in end-to-end process automation, deploying production-ready backends on any stack, and building client-facing automation systems. From internal workflows to scalable cloud services and automated client communications, I deliver reliable, well-documented solutions that run smoothly out of the box
 
+Machine Learning
+I specialize in developing, fine-tuning, and deploying AI models — from LLMs and vision systems to custom ML pipelines. I turn research-grade models into production-ready solutions.
+
 ---
 
 ## Projects
