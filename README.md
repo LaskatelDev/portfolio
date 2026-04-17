@@ -640,8 +640,3 @@ for user in get_all_users():
 ```
 
 
----
-
-## Contact
-
-Telegram: [@laskatell](https://t.me/laskatell)
